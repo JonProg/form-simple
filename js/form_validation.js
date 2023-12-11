@@ -36,22 +36,30 @@ class ValidedForm{
             valid = false;
         }
 
+        if (valid){
+            samePassword.parentElement.classList.add('success');
+            password.parentElement.classList.add('success');
+        }
         return valid;
     }
 
     isValid(){
         let valid = true;
-        for(let element of this.form.querySelectorAll('.error')){
+        this.form.querySelectorAll('.success, .error').forEach(element => {
+            element.classList.remove('success');
             element.classList.remove('error');
-            element.querySelector('small').innerText = ''
-        }
+            element.querySelector('small').innerText = ''; 
+        });
+        
 
         for(let field of this.form.querySelectorAll('.valided')){
             const label = field.previousElementSibling.innerText;
             if (!field.value){
                 this.msgError(field,`"${label}" não pôde estar em branco`)
                 valid = false;
-            }else{field.parentElement.classList.add('success');}
+            }else if(field.id === 'username' || field.id === 'surname'){
+                field.parentElement.classList.add('success');
+            }
 
             if(field.id === 'cpf'){
                 if(!this.validedCpf(field)) valid = false;
