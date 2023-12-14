@@ -1,3 +1,5 @@
+import {ValidatorCPF} from './validation_cpf'
+
 class ValidedForm{
     constructor(){
         this.form = document.getElementById('form');

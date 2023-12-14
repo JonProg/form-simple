@@ -1,5 +1,4 @@
-
-class ValidatorCPF{
+export class ValidatorCPF{
     constructor(cpf){
         Object.defineProperty(this,'cpfClean',{
             writable:false,
