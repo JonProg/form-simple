@@ -1,4 +1,5 @@
-import {ValidatorCPF} from './validation_cpf'
+import './assets/css/style.css';
+import {ValidatorCPF} from './validation_cpf';
 
 class ValidedForm{
     constructor(){
